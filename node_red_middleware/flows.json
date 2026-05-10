@@ -1,0 +1,236 @@
+[
+    {
+        "id": "tab_robot",
+        "type": "tab",
+        "label": "Robot Control Center",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "grp_controls",
+        "type": "ui_group",
+        "name": "Navigation",
+        "tab": "tab_dashboard",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "grp_status",
+        "type": "ui_group",
+        "name": "System Status",
+        "tab": "tab_dashboard",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "tab_dashboard",
+        "type": "ui_tab",
+        "name": "IoT Robot Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "mqtt_broker",
+        "type": "mqtt-broker",
+        "name": "Public HiveMQ",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "btn_fwd",
+        "type": "ui_button",
+        "z": "tab_robot",
+        "name": "Forward",
+        "group": "grp_controls",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "FORWARD",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#28a745",
+        "icon": "fa-arrow-up",
+        "payload": "FORWARD",
+        "payloadType": "str",
+        "topic": "robot/control",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "mqtt_out"
+            ]
+        ]
+    },
+    {
+        "id": "btn_left",
+        "type": "ui_button",
+        "z": "tab_robot",
+        "name": "Left",
+        "group": "grp_controls",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "LEFT",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#17a2b8",
+        "icon": "fa-arrow-left",
+        "payload": "LEFT",
+        "payloadType": "str",
+        "topic": "robot/control",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "mqtt_out"
+            ]
+        ]
+    },
+    {
+        "id": "btn_right",
+        "type": "ui_button",
+        "z": "tab_robot",
+        "name": "Right",
+        "group": "grp_controls",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "RIGHT",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#17a2b8",
+        "icon": "fa-arrow-right",
+        "payload": "RIGHT",
+        "payloadType": "str",
+        "topic": "robot/control",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "mqtt_out"
+            ]
+        ]
+    },
+    {
+        "id": "btn_back",
+        "type": "ui_button",
+        "z": "tab_robot",
+        "name": "Backward",
+        "group": "grp_controls",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "BACKWARD",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#ffc107",
+        "icon": "fa-arrow-down",
+        "payload": "BACKWARD",
+        "payloadType": "str",
+        "topic": "robot/control",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "mqtt_out"
+            ]
+        ]
+    },
+    {
+        "id": "btn_stop",
+        "type": "ui_button",
+        "z": "tab_robot",
+        "name": "Stop",
+        "group": "grp_controls",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "STOP",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "#dc3545",
+        "icon": "fa-stop",
+        "payload": "STOP",
+        "payloadType": "str",
+        "topic": "robot/control",
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "mqtt_out"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt_out",
+        "type": "mqtt out",
+        "z": "tab_robot",
+        "name": "Send Command",
+        "topic": "robot/control",
+        "qos": "",
+        "retain": "",
+        "broker": "mqtt_broker",
+        "x": 500,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "mqtt_in",
+        "type": "mqtt in",
+        "z": "tab_robot",
+        "name": "Receive Status",
+        "topic": "robot/status",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "mqtt_broker",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "text_status"
+            ]
+        ]
+    },
+    {
+        "id": "text_status",
+        "type": "ui_text",
+        "z": "tab_robot",
+        "group": "grp_status",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Robot Status:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 370,
+        "y": 380,
+        "wires": []
+    }
+]
