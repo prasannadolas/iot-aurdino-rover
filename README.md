@@ -1,7 +1,7 @@
 
 # Decoupled IoT Logistics Rover with Time-Series Auditing
 
-> **Using Node-RED, InfluxDB v2.0, MQTT & ESP8266/Arduino Edge Computing**
+> **Using Node-RED, InfluxDB v2.0, MQTT & ESP8266 & Arduino Edge Computing**
 
 ## Project Overview
 ![alt text](images/image1.png)

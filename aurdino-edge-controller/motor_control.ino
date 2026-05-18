@@ -1,34 +1,4 @@
-The Arduino Code (Motor control logic)
-
-Connections:-
-1. Motors to L298N Driver
-Left Side: Connect the Front-Left and Back-Left motor wires together.
-Connect both Red wires to OUT1.
-Connect both Black wires to OUT2.
-Right Side: Connect the Front-Right and Back-Right motor wires together.
-Connect both Red wires to OUT3.
-Connect both Black wires to OUT4.
-
-2. L298N to Arduino Uno
-ENA (Left Speed): Connect to Pin 5 (Remove the jumper cap if present).
-IN1 (Left Direction): Connect to Pin 8.
-IN2 (Left Direction): Connect to Pin 9.
-IN3 (Right Direction): Connect to Pin 10.
-IN4 (Right Direction): Connect to Pin 11.
-ENB (Right Speed): Connect to Pin 6 (Remove the jumper cap).
-
-3. Power (Crucial!)
-12V Battery (+): Connect to L298N 12V screw terminal.
-Battery (-): Connect to L298N GND.
-Arduino GND: Connect to L298N GND (You MUST connect the Arduino Ground to the Battery Ground, or it won't work).
-L298N 5V: Connect to Arduino Vin (This powers the Arduino from the battery).
-
-4. NodeMCU to Arduino (The Communication Link)
-NodeMCU TX: Connect to Arduino Pin 2.
-NodeMCU RX: Connect to Arduino Pin 3.
-GND: Connect NodeMCU GND to Arduino GND.
-
-CODE:-
+ 
 #include <SoftwareSerial.h>
 
 // Define pins for communication with NodeMCU
