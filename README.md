@@ -4,7 +4,7 @@
 > **Using Node-RED, InfluxDB v2.0, MQTT & ESP8266/Arduino Edge Computing**
 
 ## Project Overview
-
+![alt text](images/image1.png)
 ### Problem Statement
 
 In industrial automation and smart logistics, traditional remote-controlled vehicles suffer from severe limitations. They rely on localized, distance-limited communication (like Bluetooth) and lack centralized, permanent auditing capabilities. Furthermore, standard IoT implementations often force a single microcontroller to handle both physical motor actuation and heavy network traffic. This leads to "serial choking" or system crashes, making them completely unviable for scaling into massive, high-frequency enterprise fleets (like AGVs in an Amazon warehouse).
